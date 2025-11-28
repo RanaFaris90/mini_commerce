@@ -1,0 +1,156 @@
+<odoo>
+
+    <!-- ==================================================== -->
+    <!-- PRODUCT: Dress -->
+    <!-- ==================================================== -->
+    <record id="demo_product_dress" model="mini.product">
+        <field name="name">Dress</field>
+        <field name="description">Beautiful summer dress</field>
+        <field name="base_price">75.0</field>
+        <field name="product_type">dress</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/black_dress1.png"/>
+    </record>
+
+    <!-- Black / Small -->
+    <record id="dress_variant_black_small" model="mini.product.variant">
+        <field name="product_id" ref="demo_product_dress"/>
+        <field name="color">Black</field>
+        <field name="size">S</field>
+        <field name="extra_price">0</field>
+        <field name="initial_qty">10</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/black_dress1.png"/>
+    </record>
+
+    <!-- Red / Medium -->
+    <record id="dress_variant_red_medium" model="mini.product.variant">
+        <field name="product_id" ref="demo_product_dress"/>
+        <field name="color">Red</field>
+        <field name="size">M</field>
+        <field name="extra_price">10</field>
+        <field name="initial_qty">10</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/red_dress1.png"/>
+    </record>
+
+    <!-- Brown / X-Large -->
+    <record id="dress_variant_brown_xlarge" model="mini.product.variant">
+        <field name="product_id" ref="demo_product_dress"/>
+        <field name="color">Brown</field>
+        <field name="size">XL</field>
+        <field name="extra_price">0</field>
+        <field name="initial_qty">10</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/brown_dress1.png"/>
+    </record>
+
+
+    <!-- ==================================================== -->
+    <!-- PRODUCT: Short Wool Coat -->
+    <!-- ==================================================== -->
+    <record id="demo_product_coat" model="mini.product">
+        <field name="name">Short Wool Coat</field>
+        <field name="description">Elegant short wool coat for gatherings</field>
+        <field name="product_type">coat</field>
+        <field name="base_price">40.0</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/purple_coat1.png"/>
+    </record>
+
+    <!-- Variant 1: Purple -->
+    <record id="coat_variant_purple" model="mini.product.variant">
+        <field name="product_id" ref="demo_product_coat"/>
+        <field name="color">Purple</field>
+        <field name="size">M</field>
+        <field name="extra_price">0</field>
+        <field name="initial_qty">0</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/purple_coat1.png"/>
+    </record>
+
+    <!-- Variant 2: Light Purple -->
+    <record id="coat_variant_light_purple" model="mini.product.variant">
+        <field name="product_id" ref="demo_product_coat"/>
+        <field name="color">Light Purple</field>
+        <field name="size">M</field>
+        <field name="extra_price">0</field>
+        <field name="initial_qty">0</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/light_purple_coat1.png"/>
+    </record>
+
+    <!-- Variant 3: Black -->
+    <record id="coat_variant_black" model="mini.product.variant">
+        <field name="product_id" ref="demo_product_coat"/>
+        <field name="color">Black</field>
+        <field name="size">M</field>
+        <field name="extra_price">0</field>
+        <field name="initial_qty">0</field>
+        <field name="image" type="base64" file="mini_commerce/static/src/img/black_coat1.png"/>
+    </record>
+<!-- ========================= -->
+<!-- PRODUCT: Stylish Shoes -->
+<!-- ========================= -->
+<record id="demo_product_shoes" model="mini.product">
+    <field name="name">Stylish Shoes</field>
+    <field name="description">Comfortable and stylish everyday shoes</field>
+    <field name="product_type">shoes</field>
+    <field name="base_price">30.0</field>
+    <field name="image" type="base64" file="mini_commerce/static/src/img/blue_shoes.png"/>
+</record>
+
+<!-- Variant 1: Blue -->
+<record id="shoes_variant_blue" model="mini.product.variant">
+    <field name="product_id" ref="demo_product_shoes"/>
+    <field name="color">Blue</field>
+    <field name="size">M</field>
+    <field name="extra_price">0</field>
+    <field name="initial_qty">10</field>
+    <field name="image" type="base64" file="mini_commerce/static/src/img/blue_shoes.png"/>
+</record>
+
+<!-- Variant 2: Green -->
+<record id="shoes_variant_green" model="mini.product.variant">
+    <field name="product_id" ref="demo_product_shoes"/>
+    <field name="color">Green</field>
+    <field name="size">M</field>
+    <field name="extra_price">0</field>
+    <field name="initial_qty">10</field>
+    <field name="image" type="base64" file="mini_commerce/static/src/img/green_shoes.png"/>
+</record>
+    <!-- ========================= -->
+<!-- PRODUCT: Elegant Skirt -->
+<!-- ========================= -->
+<record id="demo_product_skirt" model="mini.product">
+    <field name="name">Elegant Skirt</field>
+    <field name="description">A modern classic skirt for all occasions</field>
+    <field name="product_type">skirt</field>
+    <field name="base_price">35.0</field>
+    <field name="image" type="base64" file="mini_commerce/static/src/img/black_skirt.png"/>
+</record>
+
+<!-- Variant 1: Black -->
+<record id="skirt_variant_black" model="mini.product.variant">
+    <field name="product_id" ref="demo_product_skirt"/>
+    <field name="color">Black</field>
+    <field name="size">M</field>
+    <field name="extra_price">0</field>
+    <field name="initial_qty">10</field>
+    <field name="image" type="base64" file="mini_commerce/static/src/img/black_skirt.png"/>
+</record>
+
+<!-- Variant 2: Blue -->
+<record id="skirt_variant_blue" model="mini.product.variant">
+    <field name="product_id" ref="demo_product_skirt"/>
+    <field name="color">Blue</field>
+    <field name="size">M</field>
+    <field name="extra_price">0</field>
+    <field name="initial_qty">10</field>
+    <field name="image" type="base64" file="mini_commerce/static/src/img/blue_skirt.png"/>
+</record>
+
+<!-- Variant 3: Green -->
+<record id="skirt_variant_green" model="mini.product.variant">
+    <field name="product_id" ref="demo_product_skirt"/>
+    <field name="color">Green</field>
+    <field name="size">M</field>
+    <field name="extra_price">0</field>
+    <field name="initial_qty">10</field>
+    <field name="image" type="base64" file="mini_commerce/static/src/img/green_skirt.png"/>
+</record>
+
+</odoo>

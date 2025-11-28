@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+
+        <template id="report_mini_order">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+
+                    <!-- GLOBAL STYLE -->
+                    <style>
+                        .mini-title {
+                        text-align: center;
+                        font-size: 28px;
+                        font-weight: 900;
+                        margin-bottom: 20px;
+                        background: linear-gradient(90deg, #6f2dbd, #b5179e);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        }
+
+                        .mini-section-title {
+                        font-size: 18px;
+                        font-weight: 700;
+                        margin: 20px 0 8px 0;
+                        color: #6f2dbd;
+                        }
+
+                        .mini-box {
+                        background: #f8f0ff;
+                        border-left: 4px solid #6f2dbd;
+                        padding: 10px 15px;
+                        border-radius: 6px;
+                        margin-bottom: 15px;
+                        }
+
+                        .mini-table th {
+                        background: #6f2dbd;
+                        color: #fff;
+                        padding: 6px;
+                        font-size: 13px;
+                        border: 1px solid #ddd;
+                        }
+
+                        .mini-table td {
+                        padding: 6px;
+                        border: 1px solid #ddd;
+                        font-size: 16px;
+                        }
+
+                        .mini-table th, .mini-table td {
+                        text-align: center !important;
+                        }
+
+                        .mini-total {
+                        font-size: 20px;
+                        font-weight: 900;
+                        color: #b5179e;
+                        margin-top: 20px;
+                        text-align: right;
+                        }
+                    </style>
+
+                    <div class="page">
+
+                        <t t-foreach="docs" t-as="o">
+
+                            <!-- TITLE -->
+                            <h2 class="mini-title">
+                                Order
+                                <t t-esc="o.name"/>
+                            </h2>
+
+                            <!-- CUSTOMER INFO -->
+                            <h4 class="mini-section-title">Customer Information</h4>
+
+                            <div class="mini-box">
+                                <p>
+                                    <strong>Name:</strong>
+                                    <t t-esc="o.customer_name"/>
+                                    <br/>
+                                    <strong>Email:</strong>
+                                    <t t-esc="o.customer_email"/>
+                                    <br/>
+                                    <strong>Phone:</strong>
+                                    <t t-esc="o.customer_phone"/>
+                                </p>
+                            </div>
+
+                            <!-- ORDER LINE TABLE -->
+                            <h4 class="mini-section-title">Order Lines</h4>
+
+                            <table class="table table-sm mini-table" style="width:100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Qty</th>
+                                        <th>Price</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr t-foreach="o.order_line_ids" t-as="line">
+                                        <td>
+                                            <t t-esc="line.product_id.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line.quantity"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line.price_unit"/>
+                                            JOD
+                                        </td>
+                                        <td>
+                                            <t t-esc="line.price_unit * line.quantity"/>
+                                            JOD
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="mini-total">
+                                Total:
+                                <t t-esc="o.total"/>
+                                JOD
+                            </div>
+
+                            <p style="page-break-after:always"/>
+                        </t>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_mini_order" model="ir.actions.report">
+            <field name="name">Mini Order</field>
+            <field name="model">mini.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mini_commerce.report_mini_order</field>
+            <field name="report_file">mini_commerce.report_mini_order</field>
+            <field name="print_report_name">'Order - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_mini_order"/>
+        </record>
+
+    </data>
+</odoo>
